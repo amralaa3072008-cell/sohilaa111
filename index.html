@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>رسالة ليكي ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: Tahoma, Arial, sans-serif;
+      color: #69384e;
+      background:
+        radial-gradient(circle at 15% 15%, #ffe1e9, transparent 35%),
+        radial-gradient(circle at 85% 85%, #f5d9ea, transparent 35%),
+        #fff7f2;
+      overflow-x: hidden;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 490px;
+      padding: 36px 24px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid #f4d7e1;
+      border-radius: 28px;
+      box-shadow: 0 20px 65px #9c54751c;
+      animation: appear 0.9s ease both;
+    }
+
+    .heart {
+      font-size: 65px;
+      display: inline-block;
+      animation: heartbeat 1.5s infinite;
+    }
+
+    .label {
+      color: #bc7695;
+      letter-spacing: 2px;
+      font-size: 12px;
+      margin-top: 12px;
+    }
+
+    h1 {
+      font-size: clamp(25px, 6vw, 36px);
+      line-height: 1.5;
+      margin: 12px 0;
+    }
+
+    .intro {
+      line-height: 2;
+      color: #8b6979;
+      font-size: 15px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 50px;
+      padding: 14px 23px;
+      margin: 8px 4px;
+      font-size: 15px;
+      font-family: inherit;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px #a65d7b25;
+    }
+
+    button:focus-visible {
+      outline: 3px solid #a84876;
+      outline-offset: 3px;
+    }
+
+    .primary {
+      background: #a84876;
+      color: white;
+    }
+
+    .secondary {
+      background: #f8e7ee;
+      color: #883d60;
+    }
+
+    .note {
+      margin-top: 22px;
+      padding: 20px;
+      text-align: right;
+      background: #fff5f8;
+      border-radius: 18px;
+      line-height: 2.1;
+      animation: appear 0.5s ease both;
+    }
+
+    .note[hidden] {
+      display: none;
+    }
+
+    .signature {
+      margin-top: 18px;
+      color: #b45d83;
+      font-weight: bold;
+    }
+
+    .footer {
+      margin-top: 28px;
+      font-size: 12px;
+      color: #ae8999;
+    }
+
+    .floating-heart {
+      position: fixed;
+      bottom: -40px;
+      pointer-events: none;
+      z-index: 5;
+      animation: floatUp 3s ease-in forwards;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.12); }
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatUp {
+      to {
+        transform: translateY(-110vh) rotate(30deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .card {
+        padding: 28px 17px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="card">
+    <div class="heart">💌</div>
+
+    <div class="label">A LITTLE SOMETHING FOR YOU</div>
+
+    <h1>يا أجمل صدفة في حياتي ❤️</h1>
+
+    <p class="intro">
+      عملتلك حاجة صغيرة مخصوص علشانك...
+      بس المرة دي مش هقولك إيه هي.
+      اكتشفي بنفسك!
+    </p>
+
+    <button class="primary" id="openBtn">
+      افتحي رسالتك 💗
+    </button>
+
+    <section class="note" id="note" hidden>
+      <h2>إلى حبيبتي ❤️</h2>
+
+      يمكن الكلام ساعات ميعرفش يوصف
+      كل اللي جوانا، بس حبيت أعملك حاجة
+      تفضل تفكرك إنك شخص مميز جدًا عندي.
+
+      وجودك بيخلّي للتفاصيل الصغيرة معنى،
+      وللأيام العادية ذكرى حلوة.
+
+      أتمنى كل مرة تفتحي فيها الصفحة دي
+      تفتكري إن فيه حد اتعب شوية
+      علشان يرسم على وشك ابتسامة. ❤️
+
+      <div class="signature">
+        بحبك.. من قلبي 💕
+      </div>
+    </section>
+
+    <button class="secondary" id="heartBtn">
+      ابعتيلي ابتسامة 😊
+    </button>
+
+    <div class="footer">
+      معمولة بحب، مخصوص ليكي ♡
+    </div>
+  </main>
+
+  <script>
+    const openBtn = document.getElementById("openBtn");
+    const note = document.getElementById("note");
+    const heartBtn = document.getElementById("heartBtn");
+
+    openBtn.addEventListener("click", () => {
+      note.hidden = !note.hidden;
+
+      openBtn.textContent = note.hidden
+        ? "افتحي رسالتك 💗"
+        : "اقفلي الرسالة 💌";
+
+      if (!note.hidden) {
+        createHearts(15);
+      }
+    });
+
+    heartBtn.addEventListener("click", () => {
+      heartBtn.textContent = "وصلتني ابتسامتك ❤️";
+      createHearts(30);
+    });
+
+    function createHearts(amount) {
+      const symbols = ["❤️", "💕", "💗", "💖", "✨"];
+
+      for (let i = 0; i < amount; i++) {
+        const heart = document.createElement("span");
+
+        heart.className = "floating-heart";
+        heart.textContent =
+          symbols[Math.floor(Math.random() * symbols.length)];
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (16 + Math.random() * 20) + "px";
+        heart.style.animationDelay = (Math.random() * 1.2) + "s";
+
+        document.body.appendChild(heart);
+
+        heart.addEventListener("animationend", () => {
+          heart.remove();
+        });
+      }
+    }
+  </script>
+</body>
+</html>
